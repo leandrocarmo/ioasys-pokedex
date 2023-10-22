@@ -1,7 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { SearchContainer, SearchInput } from './styles';
+import Image from 'next/image';
 
-export const SearchBar = () => {
+const SearchBar: React.FC = () => {
   return (
-    <div>SearchBar</div>
-  )
+    <SearchContainer>
+      <div>
+        <span>Buscar</span>
+        <SearchInput type="text" placeholder="Buscar pokémon" />
+        <Image src='assets/icons/SearchIcon.svg' alt='Lupa' width={20} height={20}/>
+      </div>
+    </SearchContainer>
+  );
 }
+
+export default SearchBar;
