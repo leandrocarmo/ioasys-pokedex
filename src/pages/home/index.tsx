@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { ContentSearch, RedBar } from './styles';
 import SearchBar from '@/components/SearchBar';
 import { ContentWrapper } from '@/styles/global';
+import PokemonCard from '@/components/PokemonCard';
+import { ContentGrid } from '@/components/PokemonCard/style';
 
 function HomePage() {
   return (
@@ -15,6 +17,9 @@ function HomePage() {
             <SearchBar />
             <FavoriteButton />
           </ContentSearch>
+          <ContentGrid>
+            <PokemonCard />
+          </ContentGrid>
         </ContentWrapper>
     </Layout>
   );

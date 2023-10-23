@@ -5,7 +5,6 @@ import { FontSize, FontWeight } from '@/styles/typography';
 export const SearchContainer = styled.div`
   position: relative;
   width: 100%;
-  max-width:39.375rem;
   margin-right: 20px;
 
   img {
