@@ -17,7 +17,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ name, image, types, id, ...pr
         <PokemonImage src={image} alt={name} />
         <PokemonInfo>
           <span>{name}</span>
-          {/* {types.map((t, index) => <span key={index}>{t.type.name}</span>)} */}
+          {types.map((t, index) => <span key={index}>{t.type.name}</span>)}
         </PokemonInfo>
       </Card>
     </>
