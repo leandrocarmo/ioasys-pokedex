@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { Color } from '@/styles/colors';
-import { FontSize, FontWeight } from '@/styles/typography';
 
 export const SearchContainer = styled.div`
   position: relative;
@@ -17,31 +15,21 @@ export const SearchContainer = styled.div`
   }
 
   span {
-    color: ${Color.primaryRed};
+    color: ${props => props.theme.color.primaryRed};
     position: absolute;
     left: 36px;
     top: -12px;
-    background-color: ${Color.white};
+    background-color: ${props => props.theme.color.white};
     width: 65px;
     text-align: center;
-    font-weight: ${FontWeight.medium};
+    font-weight: ${props => props.theme.fontWeight.medium};
   }
 `;
 
-export const SearchInput = styled.input`
-  font-size: ${FontSize.m};
-  width: 100%;
-  padding: 16px 45px;
-  border: 1px solid ${Color.primaryRed};
-  border-radius: 5px;
-  outline: none;
-  background-color: transparent;
+export const ContentSearch = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
 
-  &:focus {
-    border-color: ${Color.primaryRed};
-  }
-
-  ::placeholder {
-    color: ${Color.darkGray};
-  }
 `;

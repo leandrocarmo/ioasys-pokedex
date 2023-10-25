@@ -1,26 +1,42 @@
-import Layout from '../../components/Layout';
-import { FavoriteButton } from '@/components/FavoriteButton';
-import Image from 'next/image';
-import { ContentSearch, RedBar } from './styles';
-import SearchBar from '@/components/SearchBar';
+import React, { useEffect, useState } from 'react';
+import Layout from '../../components/Layout/layout';
 import { ContentWrapper } from '@/styles/global';
-import PokemonCard from '@/components/PokemonCard';
+import PokemonCard from '@/components/PokemonCard/pokemonCard';
 import { ContentGrid } from '@/components/PokemonCard/style';
+import { Header } from '@/components/Header/Header';
+import { Pokemon, Type } from '@/services/types';
+import { fetchPokemons } from '@/services/pokeAPI';
+import Link from 'next/link';
 
 function HomePage() {
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    const loadPokemons = async () => {
+      const fetchedPokemons = await fetchPokemons();
+      setPokemons(fetchedPokemons);
+    };
+
+    loadPokemons();
+  }, []);
+
   return (
     <Layout>
-        <RedBar></RedBar>
-        <ContentWrapper>
-          <Image src='image/logo.svg' alt='Ioasys Pokedex' width={249} height={32}/>
-          <ContentSearch>
-            <SearchBar />
-            <FavoriteButton />
-          </ContentSearch>
-          <ContentGrid>
-            <PokemonCard />
-          </ContentGrid>
-        </ContentWrapper>
+      <Header />
+      <ContentWrapper>
+        <ContentGrid>
+          {pokemons.map((pokemon) => (
+            <Link key={pokemon.id} href={`/profile/${pokemon.id}`} passHref>
+              <PokemonCard
+                id={pokemon.id}
+                types={pokemon.types}
+                name={pokemon.name}
+                image={pokemon.sprites.other['official-artwork'].front_default}
+              />
+            </Link>
+          ))}
+        </ContentGrid>
+      </ContentWrapper>
     </Layout>
   );
 }

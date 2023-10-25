@@ -1,38 +1,60 @@
-import { device } from '@/styles/breakpoints';
-import { Color } from '@/styles/colors';
 import styled from 'styled-components';
 
 export const ContentGrid = styled.div`
-    margin-top: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex: 1 1 calc(33.3% - 20px);
+    margin: 5px;
+  }
+
 `;
 
 export const Card = styled.div`
-    display: grid;
-    grid-template-rows: auto 1fr;
-    background-color: ${Color.white};
-    border: 1px solid ${Color.black};
-    border-radius: 10px;
-    overflow: hidden;
+  display: flex;
+  overflow: hidden;
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: auto 1fr;
+  background-color: ${props => props.theme.color.white};
+  border: 1px solid ${props => props.theme.color.black};
 
-    @media ${device.desktop} {
-        width: 150px;
-        height: 148px;
-    }
+  .pokeId {
+    width: 100%;
+    text-align: end;
+    font-size: ${props => props.theme.fontSize.xxs};
+    margin-right: 10px;
+  }
 
-    @media ${device.mobile} {
-        width: 104px;
-        height: 112px
-    }
+  @media ${props => props.theme.device.desktop} {
+    width: 150px;
+    height: 148px;
+  }
+
+  @media ${props => props.theme.device.mobile} {
+    width: 104px;
+    height: 112px
+  }
 `;
 
 export const PokemonImage = styled.img`
-    grid-row: 1;
-    height: 85px;
-    object-fit: cover;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
 `;
 
 export const PokemonInfo = styled.div`
-    grid-row: 2;
-    height:25px;
-    text-align: center;
+  height: 25px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    font-size: ${props => props.theme.fontSize.xxs};
+  }
 `;
