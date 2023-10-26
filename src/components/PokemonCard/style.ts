@@ -10,6 +10,12 @@ export const ContentGrid = styled.div`
     margin: 5px;
   }
 
+  @media ${props => props.theme.device.desktop} {
+    > * {
+      flex: 1 1 calc(20% - 20px);
+      margin: 5px;
+    }
+  }
 `;
 
 export const Card = styled.div`
