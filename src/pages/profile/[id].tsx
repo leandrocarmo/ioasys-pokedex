@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { Pokemon } from '@/services/types';
 import { usePokemons } from '@/services/pokemonContext';
 import { fetchPokemonById, fetchPokemonDescription } from '@/services/pokeAPI';
-import { ProfileContent, ProfileHeader, ProfilePage, PokeImg } from './styles';
+import { ProfileContent, ProfileHeader, ProfilePage, PokeImg } from '../../components/Profile/styles';
 
 const Profile: React.FC = () => {
     const { pokemons } = usePokemons();

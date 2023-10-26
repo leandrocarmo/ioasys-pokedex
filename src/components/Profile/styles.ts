@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import { css } from 'styled-components';
 
 export const ProfilePage = styled.div`
   * {
     background-color: ${props => props.theme.color.green};
   }
-
 `;
 
 export const ProfileHeader = styled.div`
@@ -38,5 +38,5 @@ export const PokeImg = styled.div`
 `;
 
 export const ProfileContent = styled.div`
-
+  background-color: ${props => props.theme.color.white};
 `;

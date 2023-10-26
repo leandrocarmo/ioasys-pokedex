@@ -4,7 +4,7 @@ import { Pokemon } from './types';
 const BASE_URL = 'https://pokeapi.co/api/v2';
 
 // Função para fazer chamadas à API.
-const apiCall = async (endpoint: string) => {
+export const apiCall = async (endpoint: string) => {
   try {
     const response = await axios.get(`${BASE_URL}${endpoint}`);
     return response.data;
