@@ -18,6 +18,7 @@ export type Pokemon = {
   species: NamedAPIResource;
   stats: Stat[];
   types: Type[];
+  description?: string;
 };
 
 export type Ability = {

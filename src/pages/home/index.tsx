@@ -6,10 +6,11 @@ import { ContentGrid } from '@/components/PokemonCard/style';
 import { Header } from '@/components/Header/Header';
 import { Pokemon, Type } from '@/services/types';
 import { fetchPokemons } from '@/services/pokeAPI';
+import { usePokemons } from '@/services/pokemonContext';
 import Link from 'next/link';
 
 function HomePage() {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const { pokemons, setPokemons } = usePokemons();
 
   useEffect(() => {
     const loadPokemons = async () => {
@@ -17,7 +18,9 @@ function HomePage() {
       setPokemons(fetchedPokemons);
     };
 
-    loadPokemons();
+    if (pokemons.length === 0) {
+      loadPokemons();
+    }
   }, []);
 
   return (

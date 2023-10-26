@@ -9,6 +9,7 @@ export const FontSize = {
   l: '18px;',
   xl: '20px;',
   xxl: '22px;',
+  xxxl: '24px;',
 };
 
 export const FontWeight = {
