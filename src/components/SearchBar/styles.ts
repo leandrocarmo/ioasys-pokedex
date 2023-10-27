@@ -15,7 +15,7 @@ export const SearchContainer = styled.div`
   }
 
   span {
-    color: ${props => props.theme.color.primaryRed};
+    color: ${props => props.theme.color.secondaryColor};
     position: absolute;
     left: 36px;
     top: -12px;

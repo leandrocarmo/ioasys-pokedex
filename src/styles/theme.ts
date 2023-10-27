@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Color } from "./colors"
 import { FontSize, FontWeight } from "./typography"
 import { breakpoints, device } from './breakpoints';
+import { PokemonTypeColor } from "./pokemonTypeColor";
 
 const theme = {
   color: Color,
@@ -9,6 +10,7 @@ const theme = {
   fontWeight: FontWeight,
   breakpoints: breakpoints,
   device: device,
+  pokemonTypeColor: PokemonTypeColor,
 }
 
 export const TitleNotFound = styled.div`

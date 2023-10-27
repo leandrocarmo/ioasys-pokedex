@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../../components/Layout/layout';
 import { ContentWrapper } from '@/styles/global';
 import PokemonCard from '@/components/PokemonCard/pokemonCard';
 import { ContentGrid } from '@/components/PokemonCard/style';
 import { Header } from '@/components/Header/Header';
-import { Pokemon, Type } from '@/services/types';
 import { fetchPokemons } from '@/services/pokeAPI';
 import { usePokemons } from '@/services/pokemonContext';
 import Link from 'next/link';
@@ -12,6 +11,7 @@ import Link from 'next/link';
 function HomePage() {
   const { pokemons, setPokemons } = usePokemons();
 
+  //carregar os pokémons da API.
   useEffect(() => {
     const loadPokemons = async () => {
       const fetchedPokemons = await fetchPokemons();
