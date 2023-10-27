@@ -10,6 +10,7 @@ export default createGlobalStyle`
   }
 
   body {
+    background-color:${props => props.theme.color.background};
     font-size: ${props => props.theme.fontSize.m};
     text-decoration: none;
     font-family: 'Poppins', sans-serif;

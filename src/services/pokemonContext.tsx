@@ -1,21 +1,21 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Pokemon } from './types';
 
-// Tipos do contexto dos Pokémons
+// Define os tipos para o contexto de Pokémons.
 interface PokemonContextType {
   pokemons: Pokemon[];
   setPokemons: React.Dispatch<React.SetStateAction<Pokemon[]>>;
 }
 
-// Tipos das props do PokemonProvider
+// Define os tipos para as props do componente provider de Pokémons.
 interface PokemonProviderProps {
   children: React.ReactNode;
 }
 
-// Contexto dos Pokémons
+// Cria um contexto para Pokémons.
 const PokemonContext = createContext<PokemonContextType | undefined>(undefined);
 
-// Provider dos Pokémons
+// Componente provider que mantém o estado dos Pokémons e disponibiliza para os componentes filhos.
 export const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) => {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
@@ -26,7 +26,8 @@ export const PokemonProvider: React.FC<PokemonProviderProps> = ({ children }) =>
   );
 };
 
-// Hook para usar o contexto dos Pokémons
+// Hook personalizado para acessar o contexto dos Pokémons.
+// Lança um erro se não for usado dentro de um PokemonProvider.
 export const usePokemons = () => {
   const context = useContext(PokemonContext);
 

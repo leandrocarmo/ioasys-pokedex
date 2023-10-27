@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, PokemonImage, PokemonInfo } from './style';
-import { Pokemon, Type } from '@/services/types';
+import { Type } from '@/services/types';
+import { PokemonTypeColor } from '../../styles/pokemonTypeColor';
 
 interface PokemonCardProps {
     id: number;
@@ -10,14 +11,15 @@ interface PokemonCardProps {
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ name, image, types, id, ...props }) => {
+  const pokeColor = types[0] ? PokemonTypeColor[types[0].type.name] : 'grey';
+
   return (
     <>
-      <Card {...props}>
+      <Card pokeColor={pokeColor} {...props}>
         <span className='pokeId'>#{id}</span>
         <PokemonImage src={image} alt={name} />
-        <PokemonInfo>
+        <PokemonInfo pokeColor={pokeColor}>
           <span>{name}</span>
-          {types.map((t, index) => <span key={index}>{t.type.name}</span>)}
         </PokemonInfo>
       </Card>
     </>
