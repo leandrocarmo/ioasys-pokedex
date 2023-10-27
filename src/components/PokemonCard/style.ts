@@ -39,11 +39,16 @@ export const Card = styled.div<{ pokeColor: string }>`
     color: ${props => props.pokeColor || props.theme.color.darkGray};
     font-size: ${props => props.theme.fontSize.xxs};
     margin-right: 10px;
+    margin-top: 5px;
   }
 
   @media ${props => props.theme.device.desktop} {
     width: 150px;
     height: 148px;
+
+    .pokeId{
+      margin-top: 10px;
+    }
   }
 
   @media ${props => props.theme.device.mobile} {
@@ -56,6 +61,12 @@ export const PokemonImage = styled.img`
   height: 70px;
   width: 70px;
   object-fit: cover;
+
+  @media ${props => props.theme.device.desktop} {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 10px;
+  }
 `;
 
 export const PokemonInfo = styled.div<{ pokeColor: string }>`
@@ -70,5 +81,9 @@ export const PokemonInfo = styled.div<{ pokeColor: string }>`
 
   span {
     font-size: ${props => props.theme.fontSize.xxs};
+  }
+
+  @media ${props => props.theme.device.desktop} {
+    height: 32px;
   }
 `;
