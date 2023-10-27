@@ -18,7 +18,7 @@ export const apiCall = async (endpoint: string) => {
 export const fetchPokemons = async (): Promise<Pokemon[]> => {
   const pokemons = [];
 
-  for (let i = 1; i <= 150; i++) {
+  for (let i = 1; i <= 30; i++) {
     const pokemon = await apiCall(`/pokemon/${i}/`);
 
     if (pokemon) {
