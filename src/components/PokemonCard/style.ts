@@ -1,3 +1,4 @@
+import { theme } from '@/styles/themes/theme';
 import styled from 'styled-components';
 
 export const ContentGrid = styled.div`
@@ -15,7 +16,7 @@ export const ContentGrid = styled.div`
     text-transform: capitalize;
   }
 
-  @media ${props => props.theme.device.desktop} {
+  @media ${theme.device.desktop} {
     > * {
       flex: 1 1 calc(20% - 20px);
       margin: 5px;
@@ -37,12 +38,12 @@ export const Card = styled.div<{ pokeColor: string }>`
     width: 100%;
     text-align: end;
     color: ${props => props.pokeColor || props.theme.color.darkGray};
-    font-size: ${props => props.theme.fontSize.xxs};
+    font-size: ${theme.fontSize.xxs};
     margin-right: 10px;
     margin-top: 5px;
   }
 
-  @media ${props => props.theme.device.desktop} {
+  @media ${theme.device.desktop} {
     width: 150px;
     height: 148px;
 
@@ -51,7 +52,7 @@ export const Card = styled.div<{ pokeColor: string }>`
     }
   }
 
-  @media ${props => props.theme.device.mobile} {
+  @media ${theme.device.mobile} {
     width: 104px;
     height: 112px
   }
@@ -62,7 +63,7 @@ export const PokemonImage = styled.img`
   width: 70px;
   object-fit: cover;
 
-  @media ${props => props.theme.device.desktop} {
+  @media ${theme.device.desktop} {
     height: 80px;
     width: 80px;
     margin-bottom: 10px;
@@ -73,17 +74,17 @@ export const PokemonInfo = styled.div<{ pokeColor: string }>`
   height: 26px;
   display: flex;
   width: 100%;
-  color: ${props => props.theme.color.white};
+  color: ${theme.colors.white};
   text-align: center;
   align-items: center;
   justify-content: center;
   background-color: ${props => props.pokeColor || props.theme.color.darkGray};
 
   span {
-    font-size: ${props => props.theme.fontSize.xxs};
+    font-size: ${theme.fontSize.xxs};
   }
 
-  @media ${props => props.theme.device.desktop} {
+  @media ${theme.device.desktop} {
     height: 32px;
   }
 `;

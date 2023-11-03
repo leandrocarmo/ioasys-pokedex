@@ -7,7 +7,7 @@ const SearchBar: React.FC = () => {
   return (
     <SearchContainer>
       <div>
-        <span>Buscar</span>
+        <label>Buscar</label>
         <Input />
         <Image src='assets/icons/SearchIcon.svg' alt='Lupa' width={20} height={20}/>
       </div>

@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header/Header";
-import { TitleNotFound, MessageNotFound } from "@/styles/theme";
+import { TitleNotFound, MessageNotFound } from "@/styles/themes/light";
 import styled from "styled-components";
 
 export default function page404() {

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '@/styles/themes/theme';
 
 export const SearchContainer = styled.div`
   position: relative;
@@ -15,14 +16,14 @@ export const SearchContainer = styled.div`
   }
 
   span {
-    color: ${props => props.theme.color.secondaryColor};
+    color: ${theme.colors.secondaryColor};
     position: absolute;
     left: 36px;
     top: -12px;
-    background-color: ${props => props.theme.color.white};
+    background-color: ${theme.colors.white};
     width: 65px;
     text-align: center;
-    font-weight: ${props => props.theme.fontWeight.medium};
+    font-weight: ${theme.fontWeight.medium};
   }
 `;
 
