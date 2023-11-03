@@ -6,12 +6,39 @@ export type ThemeType = typeof theme;
 
 const Light = createGlobalStyle`
   body {
-    background-color: ${theme.colors.background} !important;
-    font-size: ${theme.fontSize.m};
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: ${theme.fontWeight.regular};
+    background-color: ${theme.colors.background};
   }
 `;
+
+export const TitleNotFound = styled.div`
+  .title {
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+    color: ${theme.colors.lightGray};
+  }
+
+  .headline-title {
+    font-size: 148px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.bold};
+    line-height: 131.952px;
+  }
+`
+
+export const MessageNotFound = styled.div`
+  .message {
+    display: flex;
+    justify-content: center;
+    color: ${theme.colors.lightGray};
+    text-align: center;
+    font-size: ${theme.fontSize.xxl};
+    font-style: normal;
+    font-weight: ${theme.fontWeight.semiBold};
+    line-height: 31.048px;
+    letter-spacing: 0.22px;
+    margin-top: 50px;
+  }
+`
 
 export default Light;
