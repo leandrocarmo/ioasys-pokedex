@@ -4,10 +4,10 @@ import { Type } from '@/services/types';
 import { PokemonTypeColor } from '../../styles/pokemonTypeColor';
 
 interface PokemonCardProps {
-    id: number;
-    name: string;
-    image: string;
-    types: Type[];
+  id: number;
+  name: string;
+  image: string;
+  types: Type[];
 }
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ name, image, types, id, ...props }) => {

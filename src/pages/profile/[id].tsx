@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Pokemon } from '@/services/types';
-import { usePokemons } from '@/services/pokemonContext';
+import { usePokemons } from '@/context/pokemonContext';
 import { ProfileContent, ProfileHeader, ProfilePage, PokeImg } from '../../components/Profile/styles';
 import { PokemonTypeColor } from '../../styles/pokemonTypeColor';
 import ProgressBar from '../../components/PokemonCard/progressBar';

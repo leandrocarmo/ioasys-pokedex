@@ -5,7 +5,7 @@ import PokemonCard from '@/components/PokemonCard/pokemonCard';
 import { ContentGrid } from '@/components/PokemonCard/style';
 import { Header } from '@/components/Header/Header';
 import { fetchPokemons } from '@/services/pokeAPI';
-import { usePokemons } from '@/services/pokemonContext';
+import { usePokemons } from '@/context/pokemonContext';
 import Link from 'next/link';
 
 function HomePage() {

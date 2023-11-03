@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { Pokemon } from './types';
+import { Pokemon } from '../services/types';
 
 // Define os tipos para o contexto de Pokémons.
 interface PokemonContextType {
