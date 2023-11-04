@@ -10,21 +10,25 @@ export const apiCall = async (endpoint: string) => {
     return response.data;
   } catch (error) {
     console.error(`Erro ao fazer chamada para: ${endpoint}`, error);
-    return null;
+    throw error;
   }
 };
 
 // Carrega informações dos Pokémons e junta com as descrições.
-export const fetchPokemons = async (): Promise<Pokemon[]> => {
+export const fetchPokemons = async (offset: number, limit: number): Promise<Pokemon[]> => {
   const pokemons = [];
 
-  for (let i = 1; i <= 30; i++) {
-    const pokemon = await apiCall(`/pokemon/${i}/`);
+  for (let i = offset; i < offset + limit; i++) {
+    try {
+      const pokemon = await apiCall(`/pokemon/${i}/`);
 
-    if (pokemon) {
-      const description = await fetchPokemonDescription(i);
-      pokemon.description = description;
-      pokemons.push(pokemon);
+      if (pokemon) {
+        const description = await fetchPokemonDescription(i);
+        pokemon.description = description;
+        pokemons.push(pokemon);
+      }
+    } catch (error) {
+      console.error('Erro ao buscar Pokémon:', error);
     }
   }
 
@@ -33,18 +37,6 @@ export const fetchPokemons = async (): Promise<Pokemon[]> => {
 
 // Carrega a descrição e os detalhes dos pokemons pelo ID.
 // Caso não exista realiza a requisição para API.
-export const fetchPokemonById = async (id: number): Promise<Pokemon | null> => {
-  const pokemon = await apiCall(`/pokemon/${id}/`);
-
-  if (pokemon) {
-    const description = await fetchPokemonDescription(id);
-    pokemon.description = description;
-  }
-
-  return pokemon;
-};
-
-// Busca a descrição de um Pokémon pelo ID e a versão.
 export const fetchPokemonDescription = async (id: number, versionName: string = 'version-x'): Promise<string | undefined> => {
   const data = await apiCall(`/pokemon-species/${id}/`);
 
