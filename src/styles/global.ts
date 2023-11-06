@@ -16,6 +16,13 @@ export default createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     font-weight: ${theme.fontWeight.regular};
   }
+
+  @media ${theme.device.desktop} {
+    * {
+      max-width: 830px;
+      margin: 0 auto;
+    }
+  }
 `
 export const ContentWrapper = styled.div`
   margin: 0 20px;
